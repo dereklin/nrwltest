@@ -1,0 +1,37 @@
+{
+  "npmScope": "derek",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "danshui": {
+      "tags": []
+    },
+    "danshui-e2e": {
+      "tags": []
+    },
+    "my": {
+      "tags": []
+    },
+    "mytest2": {
+      "tags": []
+    },
+    "mytest": {
+      "tags": []
+    },
+    "myaccesslib": {
+      "tags": []
+    },
+    "myaccesslib2": {
+      "tags": []
+    },
+    "myaccesslib4": {
+      "tags": [
+      ]
+    }
+  }
+}

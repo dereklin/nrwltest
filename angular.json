@@ -1,0 +1,312 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "danshui": {
+      "root": "apps/danshui/",
+      "sourceRoot": "apps/danshui/src",
+      "projectType": "application",
+      "prefix": "derek",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/danshui",
+            "index": "apps/danshui/src/index.html",
+            "main": "apps/danshui/src/main.ts",
+            "polyfills": "apps/danshui/src/polyfills.ts",
+            "tsConfig": "apps/danshui/tsconfig.app.json",
+            "assets": [
+              "apps/danshui/src/favicon.ico",
+              "apps/danshui/src/assets"
+            ],
+            "styles": [
+              "apps/danshui/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/danshui/src/environments/environment.ts",
+                  "with": "apps/danshui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "danshui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "danshui:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "danshui:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/danshui/tsconfig.app.json",
+              "apps/danshui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/danshui/jest.config.js",
+            "tsConfig": "apps/danshui/tsconfig.spec.json",
+            "setupFile": "apps/danshui/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "danshui-e2e": {
+      "root": "apps/danshui-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/danshui-e2e/protractor.conf.js",
+            "devServerTarget": "danshui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "danshui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/danshui-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "my": {
+      "root": "libs/my",
+      "sourceRoot": "libs/my/src",
+      "projectType": "library",
+      "prefix": "derek",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/my/src/test.ts",
+            "tsConfig": "libs/my/tsconfig.spec.json",
+            "karmaConfig": "libs/my/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/my/tsconfig.lib.json",
+              "libs/my/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "mytest2": {
+      "root": "libs/mytest2",
+      "sourceRoot": "libs/mytest2/src",
+      "projectType": "library",
+      "prefix": "derek",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/mytest2/src/test.ts",
+            "tsConfig": "libs/mytest2/tsconfig.spec.json",
+            "karmaConfig": "libs/mytest2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/mytest2/tsconfig.lib.json",
+              "libs/mytest2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "mytest": {
+      "root": "libs/mytest",
+      "sourceRoot": "libs/mytest/src",
+      "projectType": "library",
+      "prefix": "derek",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/mytest/src/test.ts",
+            "tsConfig": "libs/mytest/tsconfig.spec.json",
+            "karmaConfig": "libs/mytest/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/mytest/tsconfig.lib.json",
+              "libs/mytest/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "myaccesslib": {
+      "root": "libs/myaccesslib",
+      "sourceRoot": "libs/myaccesslib/src",
+      "projectType": "library",
+      "prefix": "derek",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/myaccesslib/src/test.ts",
+            "tsConfig": "libs/myaccesslib/tsconfig.spec.json",
+            "karmaConfig": "libs/myaccesslib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/myaccesslib/tsconfig.lib.json",
+              "libs/myaccesslib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "myaccesslib2": {
+      "root": "libs/myaccesslib2",
+      "sourceRoot": "libs/myaccesslib2/src",
+      "projectType": "library",
+      "prefix": "derek",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/myaccesslib2/src/test.ts",
+            "tsConfig": "libs/myaccesslib2/tsconfig.spec.json",
+            "karmaConfig": "libs/myaccesslib2/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/myaccesslib2/tsconfig.lib.json",
+              "libs/myaccesslib2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "myaccesslib4": {
+      "root": "libs/myaccesslib4",
+      "sourceRoot": "libs/myaccesslib4/src",
+      "projectType": "library",
+      "prefix": "derek",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/myaccesslib4/src/test.ts",
+            "tsConfig": "libs/myaccesslib4/tsconfig.spec.json",
+            "karmaConfig": "libs/myaccesslib4/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/myaccesslib4/tsconfig.lib.json",
+              "libs/myaccesslib4/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics",
+    "packageManager": "yarn"
+  },
+  "defaultProject": "danshui"
+}
